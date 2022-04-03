@@ -3,25 +3,42 @@ package com.jesderr.shop.models;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
 
     @NotNull
+    @Column(name = "houseNumber")
     private float houseNumber;
 
     @NotNull
+    @Column(name = "street")
     private String street;
 
     @NotNull
+    @Column(name = "city")
     private String city;
+
+    @OneToMany(mappedBy = "Address")
+    private List<Shop> shopList;
+
+    public Address(Long id, float houseNumber, String street, String city, List<Shop> shopList) {
+        this.id = id;
+        this.houseNumber = houseNumber;
+        this.street = street;
+        this.city = city;
+        this.shopList = shopList;
+    }
+
+    public Address() {
+
+    }
 
     public long getId(){
         return id;

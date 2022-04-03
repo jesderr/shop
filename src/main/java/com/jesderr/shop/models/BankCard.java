@@ -3,30 +3,49 @@ package com.jesderr.shop.models;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class BankCard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Long id;
 
     @NotNull
+    @Column(name = "digitCard")
     private int digitCard;
 
     @NotNull
+    @Column(name = "cvv")
     private int cvv;
 
     @NotNull
+    @Column(name = "actionTime")
     private Date actionTime;
 
     @NotNull
+    @Column(name = "cardHolder")
     private String cardHolder;
+
+    @OneToMany(mappedBy = "bankCard")
+    private List<Buyer> buyerList;
+
+    public BankCard(Long id, int digitCard, int cvv, Date actionTime, String cardHolder, List<Buyer> buyerList) {
+        this.id = id;
+        this.digitCard = digitCard;
+        this.cvv = cvv;
+        this.actionTime = actionTime;
+        this.cardHolder = cardHolder;
+        this.buyerList = buyerList;
+    }
+
+    public BankCard() {
+
+    }
 
     public Long getId() {
         return id;

@@ -2,32 +2,55 @@ package com.jesderr.shop.models;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id",nullable = false)
     private Long id;
 
-    //private Long shopId;
-
     @NotNull
+    @Column(name = "name")
     private String name;
 
     @NotNull
+    @Column(name = "cost")
     private int cost;
 
     @NotNull
+    @Column(name = "date")
     private Date date;
 
     @NotNull
+    @Column(name = "weight")
     private double weight;
+
+    @ManyToOne
+    @JoinColumn(name = "shopId",foreignKey = @ForeignKey(name = "FK_SHOP_ID"))
+    private Shop shopId;
+
+    @OneToMany(mappedBy = "Product")
+    private List<ProductCheck> productCheckList;
+
+    public Product(Long id, String name, int cost, Date date, double weight, Shop shopId,
+                   List<ProductCheck> productCheckList) {
+        this.id = id;
+        this.name = name;
+        this.cost = cost;
+        this.date = date;
+        this.weight = weight;
+        this.shopId = shopId;
+        this.productCheckList = productCheckList;
+    }
+
+    public Product() {
+
+    }
 
     public Long getId() {
         return id;

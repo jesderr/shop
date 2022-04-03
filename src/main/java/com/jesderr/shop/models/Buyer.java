@@ -2,29 +2,48 @@ package com.jesderr.shop.models;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Buyer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id",nullable = false)
     private Long id;
 
     @NotNull
+    @Column(name = "name")
     private String name;
 
     @NotNull
+    @Column(name = "surname")
     private String surname;
 
     @NotNull
+    @Column(name = "gender")
     private String gender;
 
-    //private Long cardId;
+    @ManyToOne
+    @JoinColumn(name = "bankCardId",foreignKey = @ForeignKey(name = "FK_BANKCARD_ID"))
+    private BankCard bankCardId;
 
+    @OneToMany(mappedBy = "ShopCheck")
+    private List<ShopCheck> shopCheckList;
+
+    public Buyer(Long id, String name, String surname, String gender, BankCard bankCardId, List<ShopCheck> shopCheckList) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.bankCardId = bankCardId;
+        this.shopCheckList = shopCheckList;
+    }
+
+    public Buyer() {
+
+    }
 
     public Long getId() {
         return id;
