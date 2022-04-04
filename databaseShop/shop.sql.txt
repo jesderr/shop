@@ -1,0 +1,6 @@
+CREATE TABLE shop(
+    id BIGINT PRIMARY KEY ,
+    name CHARACTER VARYING(15) NOT NULL ,
+    addressId BIGINT REFERENCES address(id),
+    productType CHARACTER VARYING(15) NOT NULL
+);

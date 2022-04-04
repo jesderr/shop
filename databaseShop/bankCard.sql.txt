@@ -1,0 +1,7 @@
+CREATE TABLE bankCard(
+  id BIGINT PRIMARY KEY ,
+  digitCard BIGINT UNIQUE NOT NULL ,
+  cvv BIGINT NOT NULL ,
+  actionTime DATE NOT NULL ,
+  cardHolder CHARACTER VARYING(45) NOT NULL
+);
