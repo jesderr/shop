@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "Shop")
 public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

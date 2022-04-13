@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "Address")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,20 +15,18 @@ public class Address {
     private Long id;
 
     @NotNull
-    @Column(name = "houseNumber")
+    @Column(name = "House_number")
     private float houseNumber;
 
     @NotNull
-    @Column(name = "street")
+    @Column(name = "Street")
     private String street;
 
     @NotNull
-    @Column(name = "city")
+    @Column(name = "City")
     private String city;
 
-    @OneToMany(mappedBy = "Address")
-    private List<Shop> shopList;
-
+    /*
     public Address(Long id, float houseNumber, String street, String city, List<Shop> shopList) {
         this.id = id;
         this.houseNumber = houseNumber;
@@ -39,6 +38,8 @@ public class Address {
     public Address() {
 
     }
+
+     */
 
     public long getId(){
         return id;
