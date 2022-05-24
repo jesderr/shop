@@ -23,7 +23,6 @@ public class BuyerController {
 
     @PostMapping("create")
     public void createBuyer(@RequestBody Buyer buyer){
-        int a = 3;
         this.buyerService.createBuyer(buyer);
     }
 
