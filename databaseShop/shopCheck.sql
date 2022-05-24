@@ -1,7 +1,7 @@
-CREATE TABLE shopCheck(
-  id BIGINT PRIMARY KEY ,
+CREATE TABLE IF NOT EXISTS shopCheck(
+  id SERIAL PRIMARY KEY ,
   buyerId BIGINT references buyer(id),
   operationType CHARACTER VARYING(10) NOT NULL ,
-  time TIME ,
-  date DATE
+  time CHARACTER VARYING(10),
+  date CHARACTER VARYING(20)
 );
