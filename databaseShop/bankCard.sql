@@ -1,5 +1,5 @@
 CREATE TABLE bankCard(
-  id BIGINT PRIMARY KEY ,
+  id SERIAL PRIMARY KEY ,
   digitCard BIGINT UNIQUE NOT NULL ,
   cvv BIGINT NOT NULL ,
   actionTime DATE NOT NULL ,

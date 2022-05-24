@@ -1,45 +1,20 @@
 package com.jesderr.shop.models;
 
 
-import com.sun.istack.NotNull;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.persistence.*;
-import java.util.List;
-
-@Entity
-@Table(name = "Shop")
 public class Shop {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     private Long id;
-
-    @NotNull
-    @Column(name = "name")
     private String name;
-
-    @NotNull
-    @Column(name = "ProductType")
     private String productType;
-
-    @ManyToOne
-    @JoinColumn(name = "id",foreignKey = @ForeignKey(name = "FK_ADDRESS_ID"))
-    private Address addressId;
-
-    @OneToMany(mappedBy = "Shop")
-    private List<Shop> shopList;
-
-    public Shop(Long id, String name, String productType, Address addressId, List<Shop> shopList) {
-        this.id = id;
-        this.name = name;
-        this.productType = productType;
-        this.addressId = addressId;
-        this.shopList = shopList;
-    }
-
+    private Long addressId;
     public Shop() {
 
+    }
+    public Long getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Long addressId){
+        this.addressId = addressId;
     }
 
     public Long getId() {

@@ -46,23 +46,6 @@ public class Generator {
     private static final List<String> TIME_OF_OPERATION = List.of("11:06:00", "12:04:20", "14:12:20", "10:12:00",
             "14:08:22", "19:09:09", "04:04:40", "11:11:21", "01:01:01", "21:11:01");
 
-
-    public List<ProductCheck> generateProductChecks(int n){
-        List<ProductCheck> productChecks = new ArrayList<>();
-
-        for (int i = 0; i < n; i++) {
-            ProductCheck productCheck = new ProductCheck();
-
-            SecureRandom rand = new SecureRandom();
-            productCheck.id = (long) i + 1;
-            productCheck.productId = rand.nextInt(n) + 1 ;
-            productCheck.shopCheckId = rand.nextInt(n) + 1;
-
-            productChecks.add(productCheck);
-        }
-        return productChecks;
-    }
-
     public List<ShopCheck> generateShopChecks(int n) {
         List<ShopCheck> shopChecks = new ArrayList<>();
 
@@ -152,7 +135,6 @@ public class Generator {
         return buyers;
     }
 
-    //BANK_CARDS - DATE + CVV
     public List<BankCard> generateBankCards(int n) {
         List<BankCard> bankCards = new ArrayList<>();
 
@@ -160,7 +142,7 @@ public class Generator {
             BankCard bankCard = new BankCard();
             SecureRandom rand = new SecureRandom();
             bankCard.id = (long) i + 1;
-            //bankCard.cvv = rand.nextInt(1000);
+            bankCard.cvv = rand.nextInt(999-100);
             bankCard.actionTime = ACTION_TIME_FOR_BC.get(rand.nextInt(ACTION_TIME_FOR_BC.size()));
             bankCard.cardHolder = CARDHOLDER_BC.get(rand.nextInt(CARS_PRODUCTS.size()));
             bankCard.digitCard = DIGITCARDS.get(rand.nextInt(DIGITCARDS.size()));

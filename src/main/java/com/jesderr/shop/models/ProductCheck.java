@@ -1,29 +1,24 @@
 package com.jesderr.shop.models;
 
-import javax.persistence.*;
-
-@Entity
 public class ProductCheck {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     private Long id;
+    private Long productId;
+    private Long shopCheckId;
+    public ProductCheck() {}
 
-    @ManyToOne
-    @JoinColumn(name = "productId",foreignKey = @ForeignKey(name = "FK_PRODUCT_ID"))
-    private Product productId;
-
-    @ManyToOne
-    @JoinColumn(name = "shopCheckId",foreignKey = @ForeignKey(name = "FK_SHOP_CHECK_ID"))
-    private ShopCheck shopCheckId;
-
-    public ProductCheck(Long id, Product productId, ShopCheck shopCheckId) {
-        this.id = id;
-        this.productId = productId;
-        this.shopCheckId = shopCheckId;
+    public Long getProductId() {
+        return productId;
     }
 
-    public ProductCheck() {
+    public void setProductId(Long productId){
+        this.productId = productId;
+    }
 
+    public Long getShopCheckId() {
+        return shopCheckId;
+    }
+
+    public void setShopCheckId(Long shopCheckId){
+        this.shopCheckId = shopCheckId;
     }
 }
