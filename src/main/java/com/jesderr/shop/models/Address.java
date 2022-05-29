@@ -10,7 +10,7 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public Long id;
-    @Column(name = "houseNumber")
+    @Column(name = "housenumber")
     public float houseNumber;
     @Column(name = "street")
     public String street;

@@ -17,8 +17,15 @@ public class ShopCheck {
     public String time;
     @Column(name = "date")
     public String date;
-    @Column(name = "buyerId")
+    @Column(name = "buyerid")
     public Long buyerId;
+
+    public ShopCheck(String operationType, String time, String date, Long buyerId) {
+        this.operationType = operationType;
+        this.time = time;
+        this.date = date;
+        this.buyerId = buyerId;
+    }
 
     public ShopCheck(Long id, String operationType, String time, String date, Long buyerId) {
         this.id = id;

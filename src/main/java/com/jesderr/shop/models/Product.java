@@ -18,7 +18,7 @@ public class Product {
     @Column(name = "weight")
 
     public double weight;
-    @Column(name = "shopId")
+    @Column(name = "shopid")
 
     public Long shopId;
 

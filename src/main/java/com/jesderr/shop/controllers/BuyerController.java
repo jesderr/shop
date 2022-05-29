@@ -22,11 +22,11 @@ public class BuyerController {
     }
 
     @PostMapping("create")
-    public void createBuyer(@RequestBody Buyer buyer){
-        this.buyerService.createBuyer(buyer);
+    public Long createBuyer(@RequestBody Buyer buyer){
+        return this.buyerService.createBuyer(buyer);
     }
 
-    @GetMapping("get/{buyerid}")
+    @GetMapping("{buyerid}")
     public Buyer getBuyerById(@PathVariable Long buyerid){
         return this.buyerService.getBuyerById(buyerid);
     }

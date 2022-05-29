@@ -19,12 +19,12 @@ public class ShopController {
         this.shopService = shopService;
     }
 
-    @GetMapping("getShops")
+    @GetMapping("all")
     public List<Shop> getAllShops(){
         return this.shopService.getAllShops();
     }
 
-    @GetMapping("getShop/{id}")
+    @GetMapping("{id}")
     public Shop getShopById(@PathVariable Long id){
         return this.shopService.getShopById(id);
     }

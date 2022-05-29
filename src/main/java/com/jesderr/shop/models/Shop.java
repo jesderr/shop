@@ -11,9 +11,9 @@ public class Shop {
     public Long id;
     @Column(name = "name")
     public String name;
-    @Column(name = "productType")
+    @Column(name = "producttype")
     public String productType;
-    @Column(name = "addressId")
+    @Column(name = "addressid")
     public Long addressId;
 
     public Shop(Long id, String name, String productType, Long addressId) {

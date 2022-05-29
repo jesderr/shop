@@ -1,4 +1,5 @@
 package com.jesderr.shop.controllers;
+
 import com.jesderr.shop.models.Buyer;
 import com.jesderr.shop.models.Product;
 import com.jesderr.shop.models.Shop;
@@ -19,13 +20,18 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("getProducts")
-    public List<Product> getAllProducts(){
+    @GetMapping("all")
+    public List<Product> getAll() {
         return this.productService.getAllProducts();
     }
 
-    @GetMapping("getProduct/{id}")
-    public Product getProductById(@PathVariable Long id){
+    @GetMapping("shop/{shopId}")
+    public List<Product> getByShopId(@PathVariable Long shopId) {
+        return this.productService.getProductsByShopId(shopId);
+    }
+
+    @GetMapping("{id}")
+    public Product getProductById(@PathVariable Long id) {
         return this.productService.getProductById(id);
     }
 }

@@ -13,7 +13,7 @@ public class BankCardController {
 
     private final BankCardService bankCardService;
 
-    public BankCardController(BankCardService bankCardService){
+    public BankCardController(BankCardService bankCardService) {
         this.bankCardService = bankCardService;
     }
 
@@ -23,17 +23,17 @@ public class BankCardController {
     }
 
     @PostMapping("create")
-    public void createBankCard(@RequestBody BankCard bankCard){
+    public void createBankCard(@RequestBody BankCard bankCard) {
         this.bankCardService.createBankCard(bankCard);
     }
 
-    @PostMapping("createBankCard/{buyerid}")
-    public BankCard createBankCardForBuyer(@RequestBody BankCard bankCard, @PathVariable Long buyerid){
-        return this.bankCardService.createCardForBuyer(bankCard,buyerid);
+    @PostMapping("createBankCard/{buyerId}")
+    public BankCard createBankCardForBuyer(@RequestBody BankCard bankCard, @PathVariable Long buyerId) {
+        return this.bankCardService.createCardForBuyer(bankCard, buyerId);
     }
 
-    @GetMapping("create/{id}")
-    public BankCard getCardByid(@PathVariable Long id){
+    @GetMapping("{id}")
+    public BankCard getCardById(@PathVariable Long id) {
         return this.bankCardService.getCardById(id);
     }
 

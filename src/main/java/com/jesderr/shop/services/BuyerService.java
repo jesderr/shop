@@ -17,8 +17,9 @@ public class BuyerService {
     public List<Buyer> getAll(){
         return this.buyerRepository.findAll();
     }
-    public void createBuyer(Buyer buyer){
+    public Long createBuyer(Buyer buyer){
         this.buyerRepository.save(buyer);
+        return buyer.id;
     }
 
     public Buyer getBuyerById(Long buyerid){

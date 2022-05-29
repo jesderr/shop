@@ -38,6 +38,7 @@ public class BankCardService {
         Optional<Buyer> buyerOptional = this.buyerRepository.findById(buyerId);
         Buyer buyer = buyerOptional.get();
         buyer.bankCardId = bankCard.id;
+        this.buyerRepository.save(buyer);
         return bankCard;
     }
 }
