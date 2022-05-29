@@ -1,62 +1,37 @@
 package com.jesderr.shop.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "product")
 public class Product {
-    private Long id;
-    private String name;
-    private int cost;
-    private String date;
-    private double weight;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    public Long id;
+    @Column(name = "name")
+    public String name;
+    @Column(name = "cost")
+    public int cost;
+    @Column(name = "date")
+    public String date;
+    @Column(name = "weight")
 
-    private Long shopId;
-    public Product() {
+    public double weight;
+    @Column(name = "shopId")
 
-    }
+    public Long shopId;
 
-    public Long getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(Long shopId){
+    public Product(Long id, String name, int cost, String date, double weight, Long shopId) {
+        this.id = id;
+        this.name = name;
+        this.cost = cost;
+        this.date = date;
+        this.weight = weight;
         this.shopId = shopId;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Product() {
 
-    public String getName() {
-        return name;
-    }
-
-    public int getCost() {
-        return cost;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
     }
 }

@@ -19,6 +19,14 @@ public class Buyer {
     @Column(name = "cardid")
     public Long bankCardId;
 
+    public Buyer(Long id, String name, String surname, String gender, Long bankCardId) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.bankCardId = bankCardId;
+    }
+
     public Buyer() {
 
     }

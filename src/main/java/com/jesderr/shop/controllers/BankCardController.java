@@ -27,6 +27,15 @@ public class BankCardController {
         this.bankCardService.createBankCard(bankCard);
     }
 
+    @PostMapping("createBankCard/{buyerid}")
+    public BankCard createBankCardForBuyer(@RequestBody BankCard bankCard, @PathVariable Long buyerid){
+        return this.bankCardService.createCardForBuyer(bankCard,buyerid);
+    }
+
+    @GetMapping("create/{id}")
+    public BankCard getCardByid(@PathVariable Long id){
+        return this.bankCardService.getCardById(id);
+    }
 
 }
 

@@ -1,24 +1,25 @@
 package com.jesderr.shop.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "productCheck")
 public class ProductCheck {
-    private Long id;
-    private Long productId;
-    private Long shopCheckId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    public Long id;
+    @Column(name = "productId")
+
+    public Long productId;
+    @Column(name = "shopCheckId")
+
+    public Long shopCheckId;
     public ProductCheck() {}
 
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId){
+    public ProductCheck(Long id, Long productId, Long shopCheckId) {
+        this.id = id;
         this.productId = productId;
-    }
-
-    public Long getShopCheckId() {
-        return shopCheckId;
-    }
-
-    public void setShopCheckId(Long shopCheckId){
         this.shopCheckId = shopCheckId;
     }
 }

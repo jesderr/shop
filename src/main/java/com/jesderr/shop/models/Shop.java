@@ -1,43 +1,29 @@
 package com.jesderr.shop.models;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name = "shop")
 public class Shop {
-    private Long id;
-    private String name;
-    private String productType;
-    private Long addressId;
-    public Shop() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    public Long id;
+    @Column(name = "name")
+    public String name;
+    @Column(name = "productType")
+    public String productType;
+    @Column(name = "addressId")
+    public Long addressId;
 
-    }
-    public Long getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(Long addressId){
+    public Shop(Long id, String name, String productType, Long addressId) {
+        this.id = id;
+        this.name = name;
+        this.productType = productType;
         this.addressId = addressId;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Shop() {
 
-    public String getName() {
-        return name;
     }
-
-    public String getProductType() {
-        return productType;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
-    }
-}
+ }

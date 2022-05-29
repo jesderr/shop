@@ -1,52 +1,32 @@
 package com.jesderr.shop.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "shopcheck")
 public class ShopCheck {
-    private Long id;
-    private String operationType;
-    private String time;
-    private String date;
-    private Long buyerId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
 
+    public Long id;
+    @Column(name = "operationtype")
 
-    public ShopCheck() {}
+    public String operationType;
+    @Column(name = "time")
+    public String time;
+    @Column(name = "date")
+    public String date;
+    @Column(name = "buyerId")
+    public Long buyerId;
 
-    public Long getBuyerId() {
-        return buyerId;
-    }
-
-    public void setBuyerId(Long buyerId){
+    public ShopCheck(Long id, String operationType, String time, String date, Long buyerId) {
+        this.id = id;
+        this.operationType = operationType;
+        this.time = time;
+        this.date = date;
         this.buyerId = buyerId;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getOperationType() {
-        return operationType;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setOperationType(String operationType) {
-        this.operationType = operationType;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
+    public ShopCheck() {}
 }

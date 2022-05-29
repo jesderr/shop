@@ -26,4 +26,9 @@ public class BuyerController {
         this.buyerService.createBuyer(buyer);
     }
 
+    @GetMapping("get/{buyerid}")
+    public Buyer getBuyerById(@PathVariable Long buyerid){
+        return this.buyerService.getBuyerById(buyerid);
+    }
+
 }

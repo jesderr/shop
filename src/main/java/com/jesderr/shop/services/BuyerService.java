@@ -5,6 +5,7 @@ import com.jesderr.shop.repositories.BuyerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BuyerService {
@@ -18,5 +19,10 @@ public class BuyerService {
     }
     public void createBuyer(Buyer buyer){
         this.buyerRepository.save(buyer);
+    }
+
+    public Buyer getBuyerById(Long buyerid){
+        Optional<Buyer> buyerOptional = this.buyerRepository.findById(buyerid);
+        return buyerOptional.get();
     }
 }
