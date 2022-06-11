@@ -3,4 +3,5 @@ export interface Product {
   cost: number;
   date: Date;
   weight: number;
+  shopId : number;
 }

@@ -1,5 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
+import {ShopCheck} from "../models/ShopCheck.model";
+import {CheckInfo} from "../models/CheckInfo.model";
 
 
 @Injectable()
@@ -10,4 +12,11 @@ export class ShopCheckService{
     this.http = http;
   }
 
+  createShopCheck(shopCheck : ShopCheck){
+
+  }
+
+  createProductCheck(checkInfo : CheckInfo){
+
+  }
 }
