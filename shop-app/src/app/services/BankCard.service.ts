@@ -1,7 +1,8 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../core/environment";
-import {BankCard} from "../models/BankCard.model";
+import {BankCard} from "../models/bank-card";
+import {Observable} from "rxjs";
 
 
 @Injectable()
@@ -12,25 +13,18 @@ export class BankCardService{
     this.http = http;
   }
 
-  getALlBankCards(){
-    const url = environment.getAllBankCard;
+  getALlBankCards(): Observable<BankCard[]>{
+    const url = 'http://localhost:8080/api/bankcard/all';
     return this.http.get<BankCard[]>(url);
   }
 
-  createBankCard(bankCard : BankCard){
-
-  }
-
   getCardById(bankCardId : number){
-    const url = this.urlWithBankCardId(environment.getBankCardById,bankCardId);
+    const url = `http://localhost:8080/api/bankcard/${bankCardId}`;
     return this.http.get<BankCard>(url);
   }
 
-  createCardForBuyer(bankCard : BankCard, bankCardId : number){
-
-  }
-
-  private urlWithBankCardId(urlWithoutId: string, bankCardId: number): string {
-    return urlWithoutId.replace(':bankCardId', `${bankCardId}`);
+  createCardForBuyer(bankCard : BankCard, buyerId : number){
+    const url = `http://localhost:8080/api/bankcard/createBankCard${buyerId}`;
+    return this.http.post<number>(url,bankCard);
   }
 }

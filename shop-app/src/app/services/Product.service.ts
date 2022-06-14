@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../core/environment";
-import {Product} from "../models/Product.model";
+import {Product} from "../models/product";
 
 
 @Injectable()
@@ -13,26 +12,17 @@ export class ProductService{
   }
 
   getALlProducts(){
-    const url = environment.getAllProduct;
+    const url = 'http://localhost:8080/api/product/all';
     return this.http.get<Product[]>(url);
   }
 
   getProductById(productId : number){
-    const url = this.urlWithProductId(environment.getProductById,productId);
+    const url = `http://localhost:8080/api/product/${productId}`;
     return this.http.get<Product>(url);
   }
 
   getProductByShopId(shopId : number){
-    const url = this.urlWithShopId(environment.getAllProductsByShopId,shopId);
+    const url = `http://localhost:8080/api/product/shop/${shopId}`;
     return this.http.get<Product[]>(url);
   }
-
-  private urlWithProductId(urlWithoutId: string, productId: number): string {
-    return urlWithoutId.replace(':productId', `${productId}`);
-  }
-
-  private urlWithShopId(urlWithoutId: string, shopId: number): string {
-    return urlWithoutId.replace(':shopId', `${shopId}`);
-  }
-
 }

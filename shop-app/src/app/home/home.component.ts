@@ -1,23 +1,23 @@
-import {Component,OnInit} from '@angular/core';
-import {Buyer} from "../models/Buyer.model";
+import {Component, OnInit} from '@angular/core';
+import {BuyerService} from "../services/buyer.service";
+import {Buyer} from "../models/buyer";
 
 @Component({
   templateUrl: './home.component.html',
-  styleUrls:['./home.component.css']
+  styleUrls: ['./home.component.css']
 })
 
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
-  public buyer: Buyer;
+  public buyers: Buyer[] = [];
 
-  constructor(buyer: Buyer) {
-    this.buyer = buyer;
-  }
-
-  openFormToBuyer() {
-    open()
+  constructor(private buyerService: BuyerService) {
   }
 
   ngOnInit() {
+    // здесь обращаемся к сервису buyerService и вызываем метод достать всех байеров
+    this.buyerService.getALlBuyers().subscribe((result: Buyer[]) => {
+      this.buyers = result;
+    });
   }
 }

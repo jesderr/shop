@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:8080/api/';
 const buyerPrefix = baseUrl + 'buyer/';
-const bankCardPrefix = baseUrl + 'bankCard/';
+const bankCardPrefix = baseUrl + 'bankcard/';
 const productPrefix = baseUrl + 'product/';
 const shopPrefix = baseUrl + 'shop/';
 const shopCheckPrefix = baseUrl + 'shopcheck/';

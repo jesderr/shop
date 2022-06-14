@@ -1,0 +1,34 @@
+﻿<h2>Add buyer</h2>
+
+<div *ngIf = "buyer" class = "add-buyer-container">
+       <div class="centerify">
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Gender</th>
+              </tr>
+              <tr>
+                <td><input style="width: 100px"></td>
+                <td><input style="width: 100px"></td>
+                <td><input style="width: 100px"></td>
+              </tr>
+            </table>
+        </div>
+        <br>
+        <div class="centerify">
+
+            <button [routerLink]="'/buyer/checkBankCard'">
+                <span>Check bankcard</span>
+            </button>
+
+            <button [routerLink]="'/buyer/addBankCard'">
+                <span>Add bankcard</span>
+            </button>
+
+            <button [routerLink]="'/buyer/continue'">
+                <span>Continue</span>
+            </button>
+
+        </div>
+</div>

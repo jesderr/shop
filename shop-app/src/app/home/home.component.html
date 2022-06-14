@@ -1,19 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<h2>Welcome to exchange trading application</h2>
+<div class="home-container">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Home page</title>
-</head>
+  <div *ngIf="buyers" class="listBuyers">
+    <select style="margin-left: 5px; width: 150px">
+      <option value=""> Select buyer...</option>
+      <option value="">{{buyers}}</option>
+    </select>
+  </div>
 
-<body>
-<h1 style="margin-left: 25%;">Welcome to select person and buy some product!</h1>
-
-  <div>
-    <button class  = "button" (click)="openFormToBuyer()" style="height: 40px; margin-left: 45%;">
-      <span>Select buyer </span>
+  <!-- addBuyer это ссылка которая указывает на компонент AddBuyerComponent, она указыавется в app-routing.module -->
+  <button [routerLink]="'/addBuyer'" class="button" style="margin-left: 175px">
+    <span>Add buyer</span>
+  </button>
+  <div class="buttonForCheck">
+    <button [routerLink]="'/checkBuyer'" class="button" style="margin-top: 10px;
+    margin-left: 175px; width: 78px"><span>Continue</span>
     </button>
   </div>
-</body>
 
-</html>
+
+</div>
