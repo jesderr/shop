@@ -19,6 +19,10 @@ public class ShopService {
         return this.shopRepository.findAll();
     }
 
+    public long createShop(Shop shop){
+        return this.shopRepository.save(shop).id;
+    }
+
     public Shop getShopById(Long shopId){
         Optional<Shop> optionalShop = this.shopRepository.findById(shopId);
         return optionalShop.get();

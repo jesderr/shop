@@ -21,6 +21,10 @@ public class ProductService {
         this.shopRepository = shopRepository;
     }
 
+
+    public void createProduct(Product product){
+        this.productRepository.save(product);
+    }
     public List<Product> getAllProducts() {
         return this.productRepository.findAll();
     }
