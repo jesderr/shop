@@ -1,1 +1,16 @@
-<h1>TEST</h1>
+<h1>Choose purchase</h1>
+
+<div *ngIf="shops" class="listBuyers">
+  <select on-change="shopChange($event)"  style="margin-left: 5px; width: 150px">
+    <option selected hidden>Choose shop</option>
+    <option *ngFor="let shop of shops">{{shop.name}}</option>
+  </select>
+
+  <select *ngIf="selectedShop && products" on-change="productChange($event)"  style="margin-left: 5px; width: 150px">
+    <option selected hidden>Choose product</option>
+    <option *ngFor="let product of products">{{product.name}}</option>
+  </select>
+
+
+
+</div>
