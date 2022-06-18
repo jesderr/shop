@@ -1,9 +1,23 @@
-<div>
-  insert 16-code <br/>
-  insert actionTime <br/>
-  insert cvv <br/>
-  insert cardHolder <br/>
-  button for save <br/>
-  button for delete
-
+<div class="centerify">
+  <table>
+    <tr>
+      <th>Code</th>
+      <th>Action time</th>
+      <th>Cvv</th>
+      <th>Card holder</th>
+    </tr>
+    <tr>
+      <td><input id="code" style="width: 100px"></td>
+      <td><input id="actionTime" style="width: 100px"></td>
+      <td><input id="cvv" style="width: 100px"></td>
+      <td><input id="cardHolder" style="width: 100px"></td>
+    </tr>
+  </table>
 </div>
+<br>
+<div>
+  <button (click)="createBankCardClick()">
+    <span>Save bank card</span>
+  </button>
+</div>
+

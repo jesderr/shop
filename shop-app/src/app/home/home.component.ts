@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BuyerService} from "../services/buyer.service";
 import {Buyer} from "../models/buyer";
+import {Router} from "@angular/router";
 
 @Component({
   templateUrl: './home.component.html',
@@ -11,7 +12,9 @@ export class HomeComponent implements OnInit {
 
   public buyers: Buyer[] = [];
 
-  constructor(private buyerService: BuyerService) {
+  selectedBuyer: Buyer | undefined;
+
+  constructor(private buyerService: BuyerService, private router: Router) {
   }
 
   ngOnInit() {
@@ -19,5 +22,18 @@ export class HomeComponent implements OnInit {
     this.buyerService.getALlBuyers().subscribe((result: Buyer[]) => {
       this.buyers = result;
     });
+  }
+
+  buyerChange(event: any) {
+    const selectedBuyerName = event.srcElement.value;
+    this.selectedBuyer = this.buyers.find(b => b.name === selectedBuyerName);
+  }
+
+  addBuyerClick(): void {
+    this.router.navigate(['/addBuyer']);
+  }
+
+  onContinueClick(): void {
+    this.router.navigate(['/checkBuyer/', this.selectedBuyer?.id]);
   }
 }

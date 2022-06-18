@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<h2>Buyer information</h2>
 
-</body>
-</html>
+<div *ngIf = "buyer" class = "check-buyer-container">
+  <div class="centerify">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Gender</th>
+      </tr>
+      <tr>
+        <td>{{buyer.name}}</td>
+        <td>{{buyer.surname}}</td>
+        <td>{{buyer.gender}}</td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <div class="certify">
+    <button [routerLink]="'/buyer/checkBankCard'">
+      <span>Check bankcard</span>
+    </button>
+
+    <button (click)="continueClick()">
+      <span>Continue</span>
+    </button>
+
+    <button [routerLink]="'/buyer/back'">
+      <span>Back</span>
+    </button>
+
+  </div>
+</div>

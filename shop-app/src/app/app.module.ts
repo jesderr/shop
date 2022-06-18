@@ -14,17 +14,19 @@ import {ProductService} from "./services/Product.service";
 import {ShopService} from "./services/Shop.service";
 import {ShopCheckService} from "./services/ShopCheck.service";
 import {AddBankCardComponent} from "./bankCard/add-bankCard.component/add-bankCard.component";
-import {ChooseBuyerComponent} from "./buyer/choose-buyer.component/choose-buyer.component";
 import {CheckBuyerComponent} from "./buyer/check-buyer.component/check-buyer.component";
+import {CheckBankCardComponent} from "./bankCard/check-bankCard.component/check-bankCard.component";
+import {PurchaseComponent} from "./purchases/choose-shop.component/purchase.component.";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ChooseBuyerComponent,
     CheckBuyerComponent,
     AddBuyerComponent,
-    AddBankCardComponent
+    AddBankCardComponent,
+    CheckBankCardComponent,
+    PurchaseComponent
   ],
 
   imports: [

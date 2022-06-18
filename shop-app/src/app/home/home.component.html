@@ -2,18 +2,18 @@
 <div class="home-container">
 
   <div *ngIf="buyers" class="listBuyers">
-    <select style="margin-left: 5px; width: 150px">
-      <option value=""> Select buyer...</option>
-      <option value="">{{buyers}}</option>
+    <select on-change="buyerChange($event)"  style="margin-left: 5px; width: 150px">
+      <option selected hidden>Choose buyer</option>
+      <option *ngFor="let buyer of buyers">{{buyer.name}}</option>
     </select>
   </div>
 
   <!-- addBuyer это ссылка которая указывает на компонент AddBuyerComponent, она указыавется в app-routing.module -->
-  <button [routerLink]="'/addBuyer'" class="button" style="margin-left: 175px">
+  <button (click)="addBuyerClick()" class="button" style="margin-left: 175px">
     <span>Add buyer</span>
   </button>
   <div class="buttonForCheck">
-    <button [routerLink]="'/checkBuyer'" class="button" style="margin-top: 10px;
+    <button (click)="onContinueClick()" class="button" style="margin-top: 10px;
     margin-left: 175px; width: 78px"><span>Continue</span>
     </button>
   </div>

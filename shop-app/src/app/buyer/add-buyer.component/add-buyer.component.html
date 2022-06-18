@@ -1,34 +1,41 @@
 ﻿<h2>Add buyer</h2>
 
-<div *ngIf = "buyer" class = "add-buyer-container">
-       <div class="centerify">
-            <table>
-              <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Gender</th>
-              </tr>
-              <tr>
-                <td><input style="width: 100px"></td>
-                <td><input style="width: 100px"></td>
-                <td><input style="width: 100px"></td>
-              </tr>
-            </table>
-        </div>
-        <br>
-        <div class="centerify">
+<div class="add-buyer-container">
+  <div class="centerify">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Gender</th>
+      </tr>
+      <tr>
+        <td><input id="name" style="width: 100px"></td>
+        <td><input id="surname" style="width: 100px"></td>
+        <td><input id="gender" style="width: 100px"></td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <div class="centerify">
+    <button (click)="createBuyerClick()">
+      <span>Save buyer</span>
+    </button>
 
-            <button [routerLink]="'/buyer/checkBankCard'">
-                <span>Check bankcard</span>
-            </button>
+    <button *ngIf="buyer && !buyer.bankCardId" (click)="createBankCardClick()">
+      <span>Create bank card</span>
+    </button>
 
-            <button [routerLink]="'/buyer/addBankCard'">
-                <span>Add bankcard</span>
-            </button>
+    <button (click)="continueClick()">
+      <span>Continue</span>
+    </button>
 
-            <button [routerLink]="'/buyer/continue'">
-                <span>Continue</span>
-            </button>
+    <button [routerLink]="'/buyer/back'">
+      <span>Back</span>
+    </button>
 
-        </div>
+  </div>
+</div>
+
+<div class="bankCard">
+
 </div>

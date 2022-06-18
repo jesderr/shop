@@ -1,32 +1,38 @@
 ﻿import {Component, OnInit} from "@angular/core";
 import {Buyer} from "../../models/buyer";
-import {BankCard} from "../../models/bank-card";
-import {BankCardService} from "../../services/BankCard.service";
+import {BuyerService} from "../../services/buyer.service";
+import {Router} from "@angular/router";
 
 @Component({
   templateUrl: './add-buyer.component.html'
 })
 export class AddBuyerComponent implements OnInit {
-  public bankCard: BankCard;
-  public buyer: Buyer;
-  public name: String;
-  public surname: String;
-  public gender: String;
+  public buyer: Buyer | undefined;
 
 
-  constructor(buyer: Buyer, name: String, surname: String,
-              gender: String, private BankCardService: BankCardService, bankCard : BankCard) {
-    this.buyer = buyer;
-    this.name = name;
-    this.surname = surname;
-    this.gender = gender;
-    this.bankCard = bankCard;//????
+  constructor(private buyerService: BuyerService, private router: Router) {
   }
 
+
   ngOnInit() {
-    // не очень понял как передвать Id в такие методы ещё не очень понял нужно ли передавать в конструктор BankCard
-    //this.BankCardService.getCardById(this.bankCard.id).subscribe((result: ba ) => {
-      //this.buyers = result;
-    //});
+  }
+
+  createBuyerClick() {
+    let name = (<HTMLInputElement>document.getElementById('name')).value;
+    let surname = (<HTMLInputElement>document.getElementById('surname')).value;
+    let gender = (<HTMLInputElement>document.getElementById('gender')).value;
+    let buyer = new Buyer(name, surname, gender);
+    this.buyerService.createBuyer(buyer).subscribe(buyerId => {
+      this.buyer = buyer;
+      this.buyer.id = buyerId;
+    });
+  }
+
+  createBankCardClick() {
+    this.router.navigate(['/buyer/addBankCard/', this.buyer!.id]);
+  }
+
+  continueClick() {
+    this.router.navigate(['/purchase']);
   }
 }

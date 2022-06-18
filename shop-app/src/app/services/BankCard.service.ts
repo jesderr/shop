@@ -24,7 +24,7 @@ export class BankCardService{
   }
 
   createCardForBuyer(bankCard : BankCard, buyerId : number){
-    const url = `http://localhost:8080/api/bankcard/createBankCard${buyerId}`;
+    const url = `http://localhost:8080/api/bankcard/createBankCard/${buyerId}`;
     return this.http.post<number>(url,bankCard);
   }
 }
