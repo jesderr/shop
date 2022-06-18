@@ -17,6 +17,7 @@ import {AddBankCardComponent} from "./bankCard/add-bankCard.component/add-bankCa
 import {CheckBuyerComponent} from "./buyer/check-buyer.component/check-buyer.component";
 import {CheckBankCardComponent} from "./bankCard/check-bankCard.component/check-bankCard.component";
 import {PurchaseComponent} from "./purchases/choose-shop.component/purchase.component.";
+import {PayInfoComponent} from "./pay-info/pay-info.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {PurchaseComponent} from "./purchases/choose-shop.component/purchase.comp
     AddBuyerComponent,
     AddBankCardComponent,
     CheckBankCardComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    PayInfoComponent
   ],
 
   imports: [

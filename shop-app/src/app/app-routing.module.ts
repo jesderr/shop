@@ -6,6 +6,7 @@ import {CheckBuyerComponent} from "./buyer/check-buyer.component/check-buyer.com
 import {AddBankCardComponent} from "./bankCard/add-bankCard.component/add-bankCard.component";
 import {CheckBankCardComponent} from "./bankCard/check-bankCard.component/check-bankCard.component";
 import {PurchaseComponent} from "./purchases/choose-shop.component/purchase.component.";
+import {PayInfoComponent} from "./pay-info/pay-info.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -14,8 +15,8 @@ const routes: Routes = [
   {path: 'buyer/addBankCard/:id', component : AddBankCardComponent},
   {path: 'buyer/checkBankCard', component : CheckBankCardComponent},
   {path: 'buyer/back', component :HomeComponent},
-  {path: 'purchase', component: PurchaseComponent}
-  //{path: '/buyer/continue', component : }
+  {path: 'purchase/:id', component: PurchaseComponent},
+  {path: 'payInfo', component: PayInfoComponent}
 ]
 
 @NgModule({

@@ -1,0 +1,6 @@
+<h1>Pay information</h1>
+
+<div *ngIf="buyer && product && shopCheck">
+  Buyer {{buyer.name}} {{buyer.surname}} bought the {{product.name}} for {{product.cost}} rubbles.
+  Product was created {{product.date}}. Buyer do purchase at {{shopCheck.date}} by {{shopCheck.operationType}}.
+</div>

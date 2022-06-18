@@ -15,6 +15,13 @@ public class ShopCheckController {
         this.shopCheckService = shopCheckService;
     }
 
+
+    @GetMapping("{id}")
+    public ShopCheck getShopCheckById(@PathVariable Long id){
+       return this.shopCheckService.getShopCheckById(id);
+    }
+
+
     @PostMapping("create")
     public void createShopCheck(@RequestBody ShopCheck shopCheck){
         this.shopCheckService.createShopCheck(shopCheck);

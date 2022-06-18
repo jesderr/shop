@@ -34,6 +34,6 @@ export class CheckBuyerComponent {
   }
 
   continueClick() {
-    this.router.navigate(['/purchase']);
+    this.router.navigate(['/purchase/',this.buyerId]);
   }
 }

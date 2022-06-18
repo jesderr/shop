@@ -32,6 +32,10 @@ public class ShopCheckService {
         this.shopCheckRepository.save(shopCheck);
     }
 
+    public ShopCheck getShopCheckById(Long id){
+        return this.shopCheckRepository.findById(id).get();
+    }
+
     public ProductCheck createProductCheck(CheckInfo checkInfo) {
         String time = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
         String date = new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime());

@@ -8,10 +8,8 @@ public class ShopCheck {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-
     public Long id;
     @Column(name = "operationtype")
-
     public String operationType;
     @Column(name = "time")
     public String time;
